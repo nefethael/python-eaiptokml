@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1005">
+        <Style id="1012">
+            <PolyStyle id="1013">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1020">
+            <PolyStyle id="1021">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1028">
+            <PolyStyle id="1029">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1036">
+            <PolyStyle id="1037">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1044">
+            <PolyStyle id="1045">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1052">
+            <PolyStyle id="1053">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1060">
+            <PolyStyle id="1061">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1068">
+            <PolyStyle id="1069">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1076">
+            <PolyStyle id="1077">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1084">
+            <PolyStyle id="1085">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1092">
+            <PolyStyle id="1093">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Placemark id="1007">
+            <name>CTR_BORDEAUX_MERIGNAC upper</name>
+            <styleUrl>#1012</styleUrl>
+            <Polygon id="1006">
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1010">
+                        <coordinates>-0.8808333333333334,44.97555555555556,609.6 -0.7969444444444445,45.028888888888886,609.6 -0.6124999999999999,45.00833333333333,609.6 -0.5266666666666667,44.98777777777778,609.6 -0.4888888888888889,44.78111111111111,609.6 -0.5041666666666667,44.74583333333334,609.6 -0.77,44.70416666666667,609.6 -0.9249999999999999,44.81805555555556,609.6 -0.8808333333333334,44.97555555555556,609.6</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1015">
+            <name>CTR_BORDEAUX_MERIGNAC lower</name>
+            <styleUrl>#1020</styleUrl>
+            <Polygon id="1014">
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1018">
+                        <coordinates>-0.8808333333333334,44.97555555555556,0 -0.7969444444444445,45.028888888888886,0 -0.6124999999999999,45.00833333333333,0 -0.5266666666666667,44.98777777777778,0 -0.4888888888888889,44.78111111111111,0 -0.5041666666666667,44.74583333333334,0 -0.77,44.70416666666667,0 -0.9249999999999999,44.81805555555556,0 -0.8808333333333334,44.97555555555556,0</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1023">
+            <name>CTR_BORDEAUX_MERIGNAC side 0</name>
+            <styleUrl>#1028</styleUrl>
+            <Polygon id="1022">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1026">
+                        <coordinates>-0.8808333333333334,44.97555555555556,0 -0.7969444444444445,45.028888888888886,0 -0.7969444444444445,45.028888888888886,609.6 -0.8808333333333334,44.97555555555556,609.6 -0.8808333333333334,44.97555555555556,0</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1031">
+            <name>CTR_BORDEAUX_MERIGNAC side 1</name>
+            <styleUrl>#1036</styleUrl>
+            <Polygon id="1030">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1034">
+                        <coordinates>-0.7969444444444445,45.028888888888886,0 -0.6124999999999999,45.00833333333333,0 -0.6124999999999999,45.00833333333333,609.6 -0.7969444444444445,45.028888888888886,609.6 -0.7969444444444445,45.028888888888886,0</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1039">
+            <name>CTR_BORDEAUX_MERIGNAC side 2</name>
+            <styleUrl>#1044</styleUrl>
+            <Polygon id="1038">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1042">
+                        <coordinates>-0.6124999999999999,45.00833333333333,0 -0.5266666666666667,44.98777777777778,0 -0.5266666666666667,44.98777777777778,609.6 -0.6124999999999999,45.00833333333333,609.6 -0.6124999999999999,45.00833333333333,0</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1047">
+            <name>CTR_BORDEAUX_MERIGNAC side 3</name>
+            <styleUrl>#1052</styleUrl>
+            <Polygon id="1046">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1050">
+                        <coordinates>-0.5266666666666667,44.98777777777778,0 -0.4888888888888889,44.78111111111111,0 -0.4888888888888889,44.78111111111111,609.6 -0.5266666666666667,44.98777777777778,609.6 -0.5266666666666667,44.98777777777778,0</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1055">
+            <name>CTR_BORDEAUX_MERIGNAC side 4</name>
+            <styleUrl>#1060</styleUrl>
+            <Polygon id="1054">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1058">
+                        <coordinates>-0.4888888888888889,44.78111111111111,0 -0.5041666666666667,44.74583333333334,0 -0.5041666666666667,44.74583333333334,609.6 -0.4888888888888889,44.78111111111111,609.6 -0.4888888888888889,44.78111111111111,0</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1063">
+            <name>CTR_BORDEAUX_MERIGNAC side 5</name>
+            <styleUrl>#1068</styleUrl>
+            <Polygon id="1062">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1066">
+                        <coordinates>-0.5041666666666667,44.74583333333334,0 -0.77,44.70416666666667,0 -0.77,44.70416666666667,609.6 -0.5041666666666667,44.74583333333334,609.6 -0.5041666666666667,44.74583333333334,0</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1071">
+            <name>CTR_BORDEAUX_MERIGNAC side 6</name>
+            <styleUrl>#1076</styleUrl>
+            <Polygon id="1070">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1074">
+                        <coordinates>-0.77,44.70416666666667,0 -0.9249999999999999,44.81805555555556,0 -0.9249999999999999,44.81805555555556,609.6 -0.77,44.70416666666667,609.6 -0.77,44.70416666666667,0</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1079">
+            <name>CTR_BORDEAUX_MERIGNAC side 7</name>
+            <styleUrl>#1084</styleUrl>
+            <Polygon id="1078">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1082">
+                        <coordinates>-0.9249999999999999,44.81805555555556,0 -0.8808333333333334,44.97555555555556,0 -0.8808333333333334,44.97555555555556,609.6 -0.9249999999999999,44.81805555555556,609.6 -0.9249999999999999,44.81805555555556,0</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1087">
+            <name>CTR_BORDEAUX_MERIGNAC side 8</name>
+            <styleUrl>#1092</styleUrl>
+            <Polygon id="1086">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1090">
+                        <coordinates>-0.8808333333333334,44.97555555555556,0 -0.8808333333333334,44.97555555555556,0 -0.8808333333333334,44.97555555555556,609.6 -0.8808333333333334,44.97555555555556,609.6 -0.8808333333333334,44.97555555555556,0</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+    </Document>
+</kml>

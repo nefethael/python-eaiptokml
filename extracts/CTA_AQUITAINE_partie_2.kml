@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1095">
+        <Style id="1102">
+            <PolyStyle id="1103">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1110">
+            <PolyStyle id="1111">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1118">
+            <PolyStyle id="1119">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1126">
+            <PolyStyle id="1127">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1134">
+            <PolyStyle id="1135">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1142">
+            <PolyStyle id="1143">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1150">
+            <PolyStyle id="1151">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1158">
+            <PolyStyle id="1159">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1166">
+            <PolyStyle id="1167">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1174">
+            <PolyStyle id="1175">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1182">
+            <PolyStyle id="1183">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1190">
+            <PolyStyle id="1191">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="1198">
+            <PolyStyle id="1199">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Placemark id="1097">
+            <name>CTA_AQUITAINE_partie_2 upper</name>
+            <styleUrl>#1102</styleUrl>
+            <Polygon id="1096">
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1100">
+                        <coordinates>-1.2166666666666668,45.666666666666664,4419.6 -0.7891666666666667,45.666666666666664,4419.6 -0.48333333333333334,45.666666666666664,4419.6 -0.4375,45.666666666666664,4419.6 -0.17638888888888887,45.666666666666664,4419.6 -0.15027777777777776,45.666666666666664,4419.6 0.0936111111111111,45.5,4419.6 -0.725,45.5,4419.6 -1.166111111111111,45.5,4419.6 -1.1833333333333333,45.56111111111111,4419.6 -1.2166666666666668,45.666666666666664,4419.6</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1105">
+            <name>CTA_AQUITAINE_partie_2 lower</name>
+            <styleUrl>#1110</styleUrl>
+            <Polygon id="1104">
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1108">
+                        <coordinates>-1.2166666666666668,45.666666666666664,3505.2000000000003 -0.7891666666666667,45.666666666666664,3505.2000000000003 -0.48333333333333334,45.666666666666664,3505.2000000000003 -0.4375,45.666666666666664,3505.2000000000003 -0.17638888888888887,45.666666666666664,3505.2000000000003 -0.15027777777777776,45.666666666666664,3505.2000000000003 0.0936111111111111,45.5,3505.2000000000003 -0.725,45.5,3505.2000000000003 -1.166111111111111,45.5,3505.2000000000003 -1.1833333333333333,45.56111111111111,3505.2000000000003 -1.2166666666666668,45.666666666666664,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1113">
+            <name>CTA_AQUITAINE_partie_2 side 0</name>
+            <styleUrl>#1118</styleUrl>
+            <Polygon id="1112">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1116">
+                        <coordinates>-1.2166666666666668,45.666666666666664,3505.2000000000003 -0.7891666666666667,45.666666666666664,3505.2000000000003 -0.7891666666666667,45.666666666666664,4419.6 -1.2166666666666668,45.666666666666664,4419.6 -1.2166666666666668,45.666666666666664,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1121">
+            <name>CTA_AQUITAINE_partie_2 side 1</name>
+            <styleUrl>#1126</styleUrl>
+            <Polygon id="1120">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1124">
+                        <coordinates>-0.7891666666666667,45.666666666666664,3505.2000000000003 -0.48333333333333334,45.666666666666664,3505.2000000000003 -0.48333333333333334,45.666666666666664,4419.6 -0.7891666666666667,45.666666666666664,4419.6 -0.7891666666666667,45.666666666666664,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1129">
+            <name>CTA_AQUITAINE_partie_2 side 2</name>
+            <styleUrl>#1134</styleUrl>
+            <Polygon id="1128">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1132">
+                        <coordinates>-0.48333333333333334,45.666666666666664,3505.2000000000003 -0.4375,45.666666666666664,3505.2000000000003 -0.4375,45.666666666666664,4419.6 -0.48333333333333334,45.666666666666664,4419.6 -0.48333333333333334,45.666666666666664,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1137">
+            <name>CTA_AQUITAINE_partie_2 side 3</name>
+            <styleUrl>#1142</styleUrl>
+            <Polygon id="1136">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1140">
+                        <coordinates>-0.4375,45.666666666666664,3505.2000000000003 -0.17638888888888887,45.666666666666664,3505.2000000000003 -0.17638888888888887,45.666666666666664,4419.6 -0.4375,45.666666666666664,4419.6 -0.4375,45.666666666666664,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1145">
+            <name>CTA_AQUITAINE_partie_2 side 4</name>
+            <styleUrl>#1150</styleUrl>
+            <Polygon id="1144">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1148">
+                        <coordinates>-0.17638888888888887,45.666666666666664,3505.2000000000003 -0.15027777777777776,45.666666666666664,3505.2000000000003 -0.15027777777777776,45.666666666666664,4419.6 -0.17638888888888887,45.666666666666664,4419.6 -0.17638888888888887,45.666666666666664,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1153">
+            <name>CTA_AQUITAINE_partie_2 side 5</name>
+            <styleUrl>#1158</styleUrl>
+            <Polygon id="1152">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1156">
+                        <coordinates>-0.15027777777777776,45.666666666666664,3505.2000000000003 0.0936111111111111,45.5,3505.2000000000003 0.0936111111111111,45.5,4419.6 -0.15027777777777776,45.666666666666664,4419.6 -0.15027777777777776,45.666666666666664,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1161">
+            <name>CTA_AQUITAINE_partie_2 side 6</name>
+            <styleUrl>#1166</styleUrl>
+            <Polygon id="1160">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1164">
+                        <coordinates>0.0936111111111111,45.5,3505.2000000000003 -0.725,45.5,3505.2000000000003 -0.725,45.5,4419.6 0.0936111111111111,45.5,4419.6 0.0936111111111111,45.5,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1169">
+            <name>CTA_AQUITAINE_partie_2 side 7</name>
+            <styleUrl>#1174</styleUrl>
+            <Polygon id="1168">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1172">
+                        <coordinates>-0.725,45.5,3505.2000000000003 -1.166111111111111,45.5,3505.2000000000003 -1.166111111111111,45.5,4419.6 -0.725,45.5,4419.6 -0.725,45.5,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1177">
+            <name>CTA_AQUITAINE_partie_2 side 8</name>
+            <styleUrl>#1182</styleUrl>
+            <Polygon id="1176">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1180">
+                        <coordinates>-1.166111111111111,45.5,3505.2000000000003 -1.1833333333333333,45.56111111111111,3505.2000000000003 -1.1833333333333333,45.56111111111111,4419.6 -1.166111111111111,45.5,4419.6 -1.166111111111111,45.5,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1185">
+            <name>CTA_AQUITAINE_partie_2 side 9</name>
+            <styleUrl>#1190</styleUrl>
+            <Polygon id="1184">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1188">
+                        <coordinates>-1.1833333333333333,45.56111111111111,3505.2000000000003 -1.2166666666666668,45.666666666666664,3505.2000000000003 -1.2166666666666668,45.666666666666664,4419.6 -1.1833333333333333,45.56111111111111,4419.6 -1.1833333333333333,45.56111111111111,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="1193">
+            <name>CTA_AQUITAINE_partie_2 side 10</name>
+            <styleUrl>#1198</styleUrl>
+            <Polygon id="1192">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="1196">
+                        <coordinates>-1.2166666666666668,45.666666666666664,3505.2000000000003 -1.2166666666666668,45.666666666666664,3505.2000000000003 -1.2166666666666668,45.666666666666664,4419.6 -1.2166666666666668,45.666666666666664,4419.6 -1.2166666666666668,45.666666666666664,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+    </Document>
+</kml>

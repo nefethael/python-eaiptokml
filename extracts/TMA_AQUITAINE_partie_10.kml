@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="5253">
+        <Style id="5260">
+            <PolyStyle id="5261">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="5268">
+            <PolyStyle id="5269">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="5276">
+            <PolyStyle id="5277">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="5284">
+            <PolyStyle id="5285">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="5292">
+            <PolyStyle id="5293">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="5300">
+            <PolyStyle id="5301">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="5308">
+            <PolyStyle id="5309">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Style id="5316">
+            <PolyStyle id="5317">
+                <color>64008000</color>
+                <colorMode>normal</colorMode>
+                <fill>1</fill>
+                <outline>1</outline>
+            </PolyStyle>
+        </Style>
+        <Placemark id="5255">
+            <name>TMA_AQUITAINE_partie_10 upper</name>
+            <styleUrl>#5260</styleUrl>
+            <Polygon id="5254">
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="5258">
+                        <coordinates>0.16666666666666666,45.45,3505.2000000000003 0.6461111111111111,45.0,3505.2000000000003 0.3252777777777778,45.0,3505.2000000000003 0.28444444444444444,44.97361111111111,3505.2000000000003 0.16666666666666666,45.132777777777775,3505.2000000000003 0.16666666666666666,45.45,3505.2000000000003</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="5263">
+            <name>TMA_AQUITAINE_partie_10 lower</name>
+            <styleUrl>#5268</styleUrl>
+            <Polygon id="5262">
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="5266">
+                        <coordinates>0.16666666666666666,45.45,1981.2 0.6461111111111111,45.0,1981.2 0.3252777777777778,45.0,1981.2 0.28444444444444444,44.97361111111111,1981.2 0.16666666666666666,45.132777777777775,1981.2 0.16666666666666666,45.45,1981.2</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="5271">
+            <name>TMA_AQUITAINE_partie_10 side 0</name>
+            <styleUrl>#5276</styleUrl>
+            <Polygon id="5270">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="5274">
+                        <coordinates>0.16666666666666666,45.45,1981.2 0.6461111111111111,45.0,1981.2 0.6461111111111111,45.0,3505.2000000000003 0.16666666666666666,45.45,3505.2000000000003 0.16666666666666666,45.45,1981.2</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="5279">
+            <name>TMA_AQUITAINE_partie_10 side 1</name>
+            <styleUrl>#5284</styleUrl>
+            <Polygon id="5278">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="5282">
+                        <coordinates>0.6461111111111111,45.0,1981.2 0.3252777777777778,45.0,1981.2 0.3252777777777778,45.0,3505.2000000000003 0.6461111111111111,45.0,3505.2000000000003 0.6461111111111111,45.0,1981.2</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="5287">
+            <name>TMA_AQUITAINE_partie_10 side 2</name>
+            <styleUrl>#5292</styleUrl>
+            <Polygon id="5286">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="5290">
+                        <coordinates>0.3252777777777778,45.0,1981.2 0.28444444444444444,44.97361111111111,1981.2 0.28444444444444444,44.97361111111111,3505.2000000000003 0.3252777777777778,45.0,3505.2000000000003 0.3252777777777778,45.0,1981.2</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="5295">
+            <name>TMA_AQUITAINE_partie_10 side 3</name>
+            <styleUrl>#5300</styleUrl>
+            <Polygon id="5294">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="5298">
+                        <coordinates>0.28444444444444444,44.97361111111111,1981.2 0.16666666666666666,45.132777777777775,1981.2 0.16666666666666666,45.132777777777775,3505.2000000000003 0.28444444444444444,44.97361111111111,3505.2000000000003 0.28444444444444444,44.97361111111111,1981.2</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="5303">
+            <name>TMA_AQUITAINE_partie_10 side 4</name>
+            <styleUrl>#5308</styleUrl>
+            <Polygon id="5302">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="5306">
+                        <coordinates>0.16666666666666666,45.132777777777775,1981.2 0.16666666666666666,45.45,1981.2 0.16666666666666666,45.45,3505.2000000000003 0.16666666666666666,45.132777777777775,3505.2000000000003 0.16666666666666666,45.132777777777775,1981.2</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+        <Placemark id="5311">
+            <name>TMA_AQUITAINE_partie_10 side 5</name>
+            <styleUrl>#5316</styleUrl>
+            <Polygon id="5310">
+                <extrude>0</extrude>
+                <altitudeMode>absolute</altitudeMode>
+                <outerBoundaryIs>
+                    <LinearRing id="5314">
+                        <coordinates>0.16666666666666666,45.45,1981.2 0.16666666666666666,45.45,1981.2 0.16666666666666666,45.45,3505.2000000000003 0.16666666666666666,45.45,3505.2000000000003 0.16666666666666666,45.45,1981.2</coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
+        </Placemark>
+    </Document>
+</kml>
