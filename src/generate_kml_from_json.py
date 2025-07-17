@@ -56,7 +56,23 @@ def generate_arc_points(start_str, center_str, end_str, radius_nm, max_circle_po
     return arc_points
 
 
-def parse_polygon_coords(coord_string):
+# === Extraction portion de frontière ===
+def extract_border_points(border, start, end):
+    def dist(a, b):
+        return (a[0]-b[0])**2 + (a[1]-b[1])**2
+    i0 = min(range(len(border)), key=lambda i: dist(border[i], start))
+    i1 = min(range(len(border)), key=lambda i: dist(border[i], end))
+    n = len(border)
+    dist_cw = (i1 - i0) % n
+    dist_ccw = (i0 - i1) % n
+    if dist_cw <= dist_ccw:
+        indices = [(i0 + k) % n for k in range(dist_cw + 1)]
+    else:
+        indices = [(i0 - k) % n for k in range(dist_ccw + 1)]
+    return [border[i] for i in indices]
+
+
+def parse_polygon_coords(coord_string, france_border):
     segments = re.split(r"\s-\s", coord_string)
     coords = []
     i = 0
@@ -77,6 +93,11 @@ def parse_polygon_coords(coord_string):
             arc_pts = generate_arc_points(prev_point, f"{center_lat},{center_lon}", next_point, radius, clockwise=is_clockwise)
             coords.extend(arc_pts)
             i += 2  # skip next_point already used
+        elif "frontière" in segment.lower() and i > 0 and i < len(segments) - 1:
+            start = parse_coord_pair(segments[i - 1])
+            end = parse_coord_pair(segments[i + 1])
+            coords.extend(extract_border_points(france_border, start, end))
+            i += 2
         else:
             try:
                 coords.append(parse_coord_pair(segment))
@@ -186,6 +207,18 @@ def add_zone_to_kml(kml_folder, polygon_coords, lower_alt, upper_alt, name, airs
         ls.extrude = 0
         ls.style = style
 
+# === Chargement GeoJSON contour France ===
+def load_france_boundary(path_geojson):
+    with open(path_geojson, 'r', encoding='utf-8') as f:
+        gj = json.load(f)
+    coords = []
+    for poly in gj["geometry"]["coordinates"]:
+        for ring in poly:
+            coords.extend([(lat, lon) for lon, lat in ring])
+    return coords
+
+# === Chargement contour frontière ===
+france_border = load_france_boundary("../data/metropole-version-simplifiee.geojson")
 
 # === Traitement du JSON en un seul KML global ===
 kml = simplekml.Kml()
@@ -201,7 +234,7 @@ for page in data.values():
         for layer in airspace["layers"]:
             try:
                 subfolder = folder.newfolder(name=layer["ident"])
-                coords = parse_polygon_coords(layer["coord"])
+                coords = parse_polygon_coords(layer["coord"], france_border)
                 lo_alt, hi_alt = parse_vertical_limits(layer["limit"])                
         
                 add_zone_to_kml(subfolder, coords, lo_alt, hi_alt, name=layer["ident"], airspace_class=layer["class"])
