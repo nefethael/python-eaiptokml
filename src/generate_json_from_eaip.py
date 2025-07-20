@@ -175,12 +175,11 @@ def parse_html_file(soup):
 def main_local():
     # --- Recherche de tous les fichiers HTML dans sample_data ---
     input_dir = "../sample_data"
-    input_files2 = [
+    input_files = [
         os.path.join(input_dir, f)
         for f in os.listdir(input_dir)
         if f.endswith(".html") or f.endswith(".htm")
     ]
-    input_files = ["../sample_data/FR-ENR-5.1-fr-FR.html"]
 
     # --- Traitement et génération JSON ---
     final_data = defaultdict(list)

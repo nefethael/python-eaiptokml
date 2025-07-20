@@ -107,7 +107,7 @@ def convert_dist_to_nm(dist, unit):
     return result
                 
 # === Parsing des coordonnées avec arcs, cercles et frontière ===
-def parse_polygon_coords(coord_string, france_border):
+def parse_polygon_coords(coord_string, france_border, sea_border):
     segments = re.split(r"\s-\s", coord_string)
     coords = []
     i = 0
@@ -135,10 +135,15 @@ def parse_polygon_coords(coord_string, france_border):
             center_lon = circle_match.group(4)
             coords.extend(generate_circle(f"{center_lat},{center_lon}", radius))
             i += 1
-        elif "frontière" in segment.lower() and i > 0 and i < len(segments) - 1:
+        elif ("frontière" in segment.lower() or "la côte atlantique" in segment.lower()) and i > 0 and i < len(segments) - 1:
             start = parse_coord_pair(segments[i - 1])
             end = parse_coord_pair(segments[i + 1])
             coords.extend(extract_border_points(france_border, start, end))
+            i += 2
+        elif "eaux territoriales" in segment.lower() and i > 0 and i < len(segments) - 1:
+            start = parse_coord_pair(segments[i - 1])
+            end = parse_coord_pair(segments[i + 1])
+            coords.extend(extract_border_points(sea_border, start, end))
             i += 2
         else:
             try:
@@ -272,11 +277,12 @@ def load_france_boundary(path_geojson):
 
 # === Chargement contour frontière ===
 france_border = load_france_boundary("../data/metropole-version-simplifiee.geojson")
+territorial_waters = load_france_boundary("../data/EspMar_FR_MT_WGS84.geojson")
 
 # === Traitement du JSON en un seul KML global ===
 kml = simplekml.Kml()
 
-with open("../extracts/airspaces2.json", "r", encoding="utf-8") as f:
+with open("../extracts/airspaces_loc.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 for page in data.values():
@@ -287,15 +293,15 @@ for page in data.values():
         for layer in airspace["layers"]:
             try:
                 subfolder = folder.newfolder(name=layer["ident"])
-                coords = parse_polygon_coords(layer["coord"], france_border)
+                coords = parse_polygon_coords(layer["coord"], france_border, territorial_waters)
                 lo_alt, hi_alt = parse_vertical_limits(layer["limit"])                
         
                 add_zone_to_kml(subfolder, coords, lo_alt, hi_alt, name=layer["ident"], airspace_class=layer["class"])
             except Exception as e:
                 print(f"Erreur sur {layer['ident']}: {e}")
 
-kml_path = "../extracts/airspaces_global2.kml"
-kmz_path = "../extracts/airspaces_global2.kmz"
+kml_path = "../extracts/airspaces_global3.kml"
+kmz_path = "../extracts/airspaces_global3.kmz"
 
 kml.save(kml_path)
 
