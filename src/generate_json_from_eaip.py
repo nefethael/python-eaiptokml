@@ -5,11 +5,13 @@ import requests
 from bs4 import BeautifulSoup
 from collections import defaultdict
 
-URLS = [
+URLS2 = [
     "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_10_JUL_2025/FRANCE/AIRAC-2025-07-10/html/eAIP/FR-AD-2.LFBD-fr-FR.html",
     "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_10_JUL_2025/FRANCE/AIRAC-2025-07-10/html/eAIP/FR-ENR-2.1-fr-FR.html",
     "https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_10_JUL_2025/FRANCE/AIRAC-2025-07-10/html/eAIP/FR-ENR-2.2-fr-FR.html",
 ]
+
+URLS = ["https://www.sia.aviation-civile.gouv.fr/media/dvd/eAIP_10_JUL_2025/FRANCE/AIRAC-2025-07-10/html/eAIP/FR-ENR-5.1-fr-FR.html"]
 
 # --- Classes de données ---
 class Subspace:
@@ -86,6 +88,7 @@ def parse_rows(rows, is_siv):
             except:
                 pass
         
+        #print(f"{ident_coord} {clazz} {limit}")
         
         # case 1, some cells are empty, its a new airspace definition
         if len(cols) < 3 or limit == "":
@@ -104,14 +107,14 @@ def parse_rows(rows, is_siv):
     
             
         # case 3, first cell is only coord              
-        elif start_with_coord_pattern.match(ident_coord_split[0]):
+        elif start_with_coord_pattern.match(ident_coord_split[0]) or ident_coord_split[0].startswith("cercle"):
             current_subspace = Subspace(last_ident, ident_coord, clazz, limit)
             current_airspace.add_subzone(current_subspace)
           
             last_coord = ident_coord
     
        
-        # case 4, first cell is mix between identifier and coords
+        # case 4, first cell is mix between identifier and coords (TMA)
         elif current_airspace.get_ident() in ident_coord:
             match = start_with_coord_pattern.search(ident_coord)
             
@@ -147,17 +150,19 @@ def parse_html_file(soup):
     for tbl in tables:
         rows = tbl.find_all("tr")
         if rows:
+
             hdrcols = rows[0].find_all(["td", "th"])
             if hdrcols:
+                
                 firstcol = hdrcols[0].get_text(" ", strip=True)                
 
                 # if TR contains corresponding header, we start processing
-                if "Identification et limites latérales" in firstcol:
+                if "identification" in firstcol.lower() and "limites latérales" in firstcol.lower():
                     secondcol = hdrcols[1].get_text(" ", strip=True)
                     
                     # SIV table does not contain class
-                    is_siv = "Limites verticales" in secondcol
-                       
+                    is_siv = "limites verticales" in secondcol.lower()
+                    
                     rows.pop(0)
                     airspaces = parse_rows(rows, is_siv)
                     
@@ -170,11 +175,12 @@ def parse_html_file(soup):
 def main_local():
     # --- Recherche de tous les fichiers HTML dans sample_data ---
     input_dir = "../sample_data"
-    input_files = [
+    input_files2 = [
         os.path.join(input_dir, f)
         for f in os.listdir(input_dir)
         if f.endswith(".html") or f.endswith(".htm")
     ]
+    input_files = ["../sample_data/FR-ENR-5.1-fr-FR.html"]
 
     # --- Traitement et génération JSON ---
     final_data = defaultdict(list)
@@ -187,7 +193,7 @@ def main_local():
             airspaces = parse_html_file(soup)
 
         if airspaces:
-            final_data[filename] = airspaces
+            final_data[key] = airspaces
 
     # --- Sauvegarde ---
     with open("../extracts/airspaces_loc.json", "w", encoding="utf-8") as f:
@@ -216,11 +222,11 @@ def main_remote():
             final_data[key] = airspaces
 
     # --- Sauvegarde ---
-    with open("../extracts/airspaces.json", "w", encoding="utf-8") as f:
+    with open("../extracts/airspaces2.json", "w", encoding="utf-8") as f:
         json.dump(final_data, f, indent=2, ensure_ascii=False)
         
     print("Fichier airspaces.json généré avec tous les fichiers de sample_data.")
 
 # === Lancement ===
 if __name__ == "__main__":
-    main_remote()
+    main_local()
