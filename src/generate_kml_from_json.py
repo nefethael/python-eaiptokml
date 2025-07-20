@@ -4,8 +4,16 @@ import zipfile
 import json
 from geographiclib.geodesic import Geodesic
 
+# === Pré-compilation des expressions régulières ===
+re_dms = re.compile(r"(\d+)°(\d+)'(\d+)(?:\"|')?([NSEW])")
+re_arc = re.compile(r"arc (anti-)?horaire de (\d+(?:\.\d+)?)\s*(NM|km|m) de rayon centré sur (.+?)\s*,\s*([0-9°'\"]+[NEWS])(?:\s*\(.*\))?\s*$")
+re_circle = re.compile(r"cercle de (\d+(?:\.\d+)?)\s*(NM|km|m) de rayon centré sur (.+?)\s*,\s*([0-9°'\"]+[NEWS]).*$")
+re_fl = re.compile(r"FL\s*(\d+)")
+re_ft = re.compile(r"(\d+)\s*ft\s*")
+
+# === Conversion DMS => décimal ===
 def dms_to_decimal(dms_str):
-    match = re.match(r"(\d+)°(\d+)'(\d+)(?:\"|')?([NSEW])", dms_str.strip())
+    match = re_dms.match(dms_str.strip())
     if not match:
         raise ValueError(f"Invalid DMS format: {dms_str}")
     deg, minute, sec, hemi = match.groups()
@@ -13,7 +21,6 @@ def dms_to_decimal(dms_str):
     if hemi in ['S', 'W']:
         decimal = -decimal
     return decimal
-
 
 def parse_coord_pair(pair_str):
     try:
@@ -25,6 +32,7 @@ def parse_coord_pair(pair_str):
         raise ValueError(f"Invalid coordinate pair: {pair_str} ({e})")
 
 
+# === Arc de cercle ===
 def generate_arc_points(start_str, center_str, end_str, radius_nm, max_circle_points=20, clockwise=True):
     radius_m = radius_nm * 1852
     start_lat, start_lon = parse_coord_pair(start_str)
@@ -55,6 +63,19 @@ def generate_arc_points(start_str, center_str, end_str, radius_nm, max_circle_po
 
     return arc_points
 
+# === Cercle complet ===
+def generate_circle(center_str, radius_nm, total_points=20):
+    radius_m = radius_nm * 1852
+    center_lat, center_lon = parse_coord_pair(center_str)
+    g = Geodesic.WGS84
+    circle = []
+    for i in range(total_points):
+        azi = (360 * i) / total_points
+        pos = g.Direct(center_lat, center_lon, azi, radius_m)
+        circle.append((pos["lat2"], pos["lon2"]))
+    circle.append(circle[0])
+    return circle
+
 
 # === Extraction portion de frontière ===
 def extract_border_points(border, start, end):
@@ -73,32 +94,56 @@ def extract_border_points(border, start, end):
         indices = [(i0 - k) % n for k in range(dist_ccw + 1)]
     return [border[i] for i in indices]
 
-
-def parse_polygon_coords(coord_string, france_border):
+def convert_dist_to_nm(dist, unit):
+    result = None
+    if unit == "NM":
+        result = dist
+    elif unit == "km":
+        result = dist / 1.852
+    elif unit == "m":
+        result = dist / 1852
+    else:
+        raise ValueError(f"Unknown unit : {unit}")
+    return result
+                
+# === Parsing des coordonnées avec arcs, cercles et frontière ===
+def parse_polygon_coords(coord_string, france_border, sea_border):
     segments = re.split(r"\s-\s", coord_string)
     coords = []
     i = 0
     while i < len(segments):
         segment = segments[i]
-        arc_match = re.match(r"arc (anti-)?horaire de (\d+(?:\.\d+)?)\s*(NM|km) de rayon centré sur (.+?)\s*,\s*([0-9°'\"]+[NEWS])(?:\s*\(.*\))?\s*$", segment)
+        arc_match = re_arc.match(segment)
+        circle_match = re_circle.match(segment)
         if arc_match and i > 0 and i < len(segments) - 1:
-        
             is_clockwise = arc_match.group(1) is None
             raw_radius = float(arc_match.group(2))
             unit = arc_match.group(3)
-            radius = raw_radius if unit == "NM" else raw_radius / 1.852  # conversion km -> NM
+            radius = convert_dist_to_nm(raw_radius, unit)
             center_lat = arc_match.group(4)
             center_lon = arc_match.group(5)
             prev_point = segments[i - 1]
             next_point = segments[i + 1]
-            
             arc_pts = generate_arc_points(prev_point, f"{center_lat},{center_lon}", next_point, radius, clockwise=is_clockwise)
             coords.extend(arc_pts)
-            i += 2  # skip next_point already used
-        elif "frontière" in segment.lower() and i > 0 and i < len(segments) - 1:
+            i += 2
+        elif circle_match:
+            raw_radius = float(circle_match.group(1))
+            unit = circle_match.group(2)           
+            radius = convert_dist_to_nm(raw_radius, unit)
+            center_lat = circle_match.group(3)
+            center_lon = circle_match.group(4)
+            coords.extend(generate_circle(f"{center_lat},{center_lon}", radius))
+            i += 1
+        elif ("frontière" in segment.lower() or "la côte atlantique" in segment.lower()) and i > 0 and i < len(segments) - 1:
             start = parse_coord_pair(segments[i - 1])
             end = parse_coord_pair(segments[i + 1])
             coords.extend(extract_border_points(france_border, start, end))
+            i += 2
+        elif "eaux territoriales" in segment.lower() and i > 0 and i < len(segments) - 1:
+            start = parse_coord_pair(segments[i - 1])
+            end = parse_coord_pair(segments[i + 1])
+            coords.extend(extract_border_points(sea_border, start, end))
             i += 2
         else:
             try:
@@ -128,25 +173,25 @@ def parse_vertical_limits(limits_str):
         lower_stat = True 
 
     if not upper_stat:
-        match = re.match(r"FL\s*(\d+)", upper)
+        match = re_fl.match(upper)
         if match:
             upper = int(match.group(1)) * 100 * 0.3048
             upper_stat = True 
 
     if not lower_stat:
-        match = re.match(r"FL\s*(\d+)", lower)
+        match = re_fl.match(lower)
         if match:
             lower = int(match.group(1)) * 100 * 0.3048
             lower_stat = True 
 
     if not upper_stat:
-        match = re.match(r"(\d+)\s*ft\s*", upper)
+        match = re_ft.match(upper)
         if match:
             upper = int(match.group(1)) * 0.3048
             upper_stat = True 
 
     if not lower_stat:
-        match = re.match(r"(\d+)\s*ft\s*", lower)
+        match = re_ft.match(lower)
         if match:
             lower = int(match.group(1)) * 0.3048
             lower_stat = True     
@@ -159,10 +204,14 @@ def parse_vertical_limits(limits_str):
 
 def class_color(airspace_class):
     colors = {
-        "C": simplekml.Color.red,
+        "C": simplekml.Color.purple,
         "D": simplekml.Color.green,
         "E": simplekml.Color.blue,
         "G": simplekml.Color.gray,
+        
+        "ZI": simplekml.Color.red,
+        "ZD": simplekml.Color.orange,
+        "ZR": simplekml.Color.yellow,
     }
     return colors.get(airspace_class.upper(), simplekml.Color.white)
 
@@ -232,6 +281,7 @@ def load_france_boundary(path_geojson):
 
 # === Chargement contour frontière ===
 france_border = load_france_boundary("../data/metropole-version-simplifiee.geojson")
+territorial_waters = load_france_boundary("../data/EspMar_FR_MT_WGS84.geojson")
 
 # === Traitement du JSON en un seul KML global ===
 kml = simplekml.Kml()
@@ -239,20 +289,23 @@ kml = simplekml.Kml()
 with open("../extracts/airspaces.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
-for page in data.values():
-    for airspace in page:
-        ident = airspace["ident"]
-        
-        folder = kml.newfolder(name=ident)
-        for layer in airspace["layers"]:
-            try:
-                subfolder = folder.newfolder(name=layer["ident"])
-                coords = parse_polygon_coords(layer["coord"], france_border)
-                lo_alt, hi_alt = parse_vertical_limits(layer["limit"])                
-        
-                add_zone_to_kml(subfolder, coords, lo_alt, hi_alt, name=layer["ident"], airspace_class=layer["class"])
-            except Exception as e:
-                print(f"Erreur sur {layer['ident']}: {e}")
+for cat in data:
+    cat_folder = kml.newfolder(name=cat)
+    
+    for page in data[cat].values():
+        for airspace in page:
+            ident = airspace["ident"]
+            
+            folder = cat_folder.newfolder(name=ident)
+            for layer in airspace["layers"]:
+                try:
+                    subfolder = folder.newfolder(name=layer["ident"])
+                    coords = parse_polygon_coords(layer["coord"], france_border, territorial_waters)
+                    lo_alt, hi_alt = parse_vertical_limits(layer["limit"])                
+            
+                    add_zone_to_kml(subfolder, coords, lo_alt, hi_alt, name=layer["ident"], airspace_class=layer["class"])
+                except Exception as e:
+                    print(f"Erreur sur {layer['ident']}: {e}")
 
 kml_path = "../extracts/airspaces_global.kml"
 kmz_path = "../extracts/airspaces_global.kmz"
