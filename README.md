@@ -5,7 +5,7 @@ Extract airspaces from eAIP France and export then as KML files
 
 File is available here [airspaces_global.kmz](https://github.com/nefethael/python-eaiptokml/raw/refs/heads/main/extracts/airspaces_global.kmz)
 
-Note generation is from AIRAC-2025-08-07.
+Note generation is from AIRAC-2025-10-02.
 
 Note KMZ can only be opened in Google Earth Pro desktop application.
 

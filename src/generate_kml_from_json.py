@@ -290,22 +290,36 @@ with open("../extracts/airspaces.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
 for cat in data:
+    kml2 = simplekml.Kml()
+
     cat_folder = kml.newfolder(name=cat)
+    cat_folder2 = kml2.newfolder(name=cat)
     
     for page in data[cat].values():
         for airspace in page:
             ident = airspace["ident"]
             
             folder = cat_folder.newfolder(name=ident)
+            folder2 = cat_folder2.newfolder(name=ident)
             for layer in airspace["layers"]:
                 try:
                     subfolder = folder.newfolder(name=layer["ident"])
+                    subfolder2 = folder2.newfolder(name=layer["ident"])
                     coords = parse_polygon_coords(layer["coord"], france_border, territorial_waters)
                     lo_alt, hi_alt = parse_vertical_limits(layer["limit"])                
             
                     add_zone_to_kml(subfolder, coords, lo_alt, hi_alt, name=layer["ident"], airspace_class=layer["class"])
+                    add_zone_to_kml(subfolder2, coords, lo_alt, hi_alt, name=layer["ident"], airspace_class=layer["class"])
                 except Exception as e:
                     print(f"Erreur sur {layer['ident']}: {e}")
+    
+    partial_kml = f"../extracts/airspaces_{cat}.kml"
+    partial_kmz = f"../extracts/airspaces_{cat}.kmz"
+    
+    kml2.save(partial_kml)
+
+    with zipfile.ZipFile(partial_kmz, 'w', zipfile.ZIP_DEFLATED) as kmz:
+        kmz.write(partial_kml, arcname="doc.kml")  # nom attendu dans un KMZ
 
 kml_path = "../extracts/airspaces_global.kml"
 kmz_path = "../extracts/airspaces_global.kmz"
