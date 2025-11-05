@@ -1,6 +1,9 @@
 # python-eaiptokml
 Extract airspaces from eAIP France and export then as KML files
 
+> [!CAUTION]
+> ⚠️⚠️⚠️⚠️ ***NOT FOR REAL WORLD USE*** ⚠️⚠️⚠️⚠️
+
 # Google Earth KMZ
 
 File is available here [airspaces_global.kmz](https://github.com/nefethael/python-eaiptokml/raw/refs/heads/main/extracts/airspaces_global.kmz)
